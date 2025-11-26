@@ -1,40 +1,39 @@
 {
-  "name": "math-app-db",
-  "version": "1.0.0",
-  "description": "Backend for the Math App",
-  "main": "index.js",
-  "scripts": {
-    "dev": "nodemon server",
-     "lint:check": "npx prettier --check .",
+    "name": "math-app-db",
+    "version": "1.0.0",
+    "description": "Backend for the Math App",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon server",
+        "lint:check": "npx prettier --check .",
         "lint:fix": "npx prettier --write .",
-    "prepare": "husky install",
-
-         "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/duellal/math-app-db.git"
-  },
-  "author": "Alexandria Duell",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/duellal/math-app-db/issues"
-  },
-  "homepage": "https://github.com/duellal/math-app-db#readme",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "knex": "^3.1.0",
-    "nodemon": "^3.1.11"
-  },
-  "devDependencies": {
-    "husky": "^9.1.7",
-    "lint-staged": "^16.2.7",
-    "prettier": "^3.6.2"
-  },
-  "lint-staged": {
-    "*.{js,css,md}": "prettier --write"
-  }
+        "prepare": "husky install",
+        "start": "node index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/duellal/math-app-db.git"
+    },
+    "author": "Alexandria Duell",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/duellal/math-app-db/issues"
+    },
+    "homepage": "https://github.com/duellal/math-app-db#readme",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^17.2.3",
+        "express": "^5.1.0",
+        "knex": "^3.1.0",
+        "nodemon": "^3.1.11"
+    },
+    "devDependencies": {
+        "husky": "^9.1.7",
+        "lint-staged": "^16.2.7",
+        "prettier": "^3.6.2"
+    },
+    "lint-staged": {
+        "*.{js,css,md}": "prettier --write"
+    }
 }
