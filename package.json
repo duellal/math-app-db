@@ -9,7 +9,7 @@
         "lint:fix": "npx prettier --write .",
         "migrate": "knex migrate:latest",
         "prepare": "husky install",
-        "rollback": "knex migrate:rollback",
+        "rollback": "knex migrate:rollback --all",
         "seed": "knex seed:run",
         "start": "node index.js`",
         "test": "echo \"Error: no test specified\" && exit 1"

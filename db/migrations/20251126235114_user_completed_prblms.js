@@ -1,9 +1,19 @@
 exports.up = async function (knex) {
+    await knex.raw('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"')
+
     return knex.schema.createTable('user_completed_prblms', (tbl) => {
-        tbl.uuid('completed_id').unique().primary()
+        tbl.uuid('completed_id')
+            .unique()
+            .primary()
+            .defaultTo(knex.raw('uuid_generate_v4()'))
         tbl.timestamp('completed_at').defaultTo(knex.fn.now())
-        tbl.integer('user_id')
+        tbl.integer('user_id').notNullable()
         tbl.uuid('prblm_id')
+            .references('problems.problem_id')
+            .onDelete('CASCADE')
+            .onUpdate('CASCADE')
+            .notNullable()
+        // .defaultTo(knex.raw('uuid_generate_v4()'))
 
         tbl.unique(['user_id', 'prblm_id'])
     })

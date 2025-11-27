@@ -1,23 +1,26 @@
-const add_prblms = require('../helpers/problem-uuid-helper')
+const gen_uuid = require('../helpers/uuid-generator')
+const prblm_ids = require('../helpers/problem-uuid-helper')
 
-exports.seed = async function (knex) {
-    await knex('problems').del()
-
-    await knex('problems').insert([
-        {
-            completed_id: add_prblms.add_1,
-            user_id: 1,
-            prblm_id: '',
-        },
-        {
-            completed_id: add_prblms.add_2,
-            user_id: 1,
-            prblm_id: '',
-        },
-        {
-            completed_id: add_prblms.add_3,
-            user_id: 2,
-            prblm_id: '',
-        },
-    ])
+exports.seed = function (knex) {
+    return knex('user_completed_prblms')
+        .del()
+        .then(async () => {
+            return knex('user_completed_prblms').insert([
+                {
+                    completed_id: '2ad1b9e8-bc88-4d50-b596-a610628d2a5c',
+                    user_id: 1,
+                    prblm_id: prblm_ids.add_1,
+                },
+                {
+                    completed_id: '9641a2d9-e69d-4143-99c2-a306311308ae',
+                    user_id: 1,
+                    prblm_id: prblm_ids.add_2,
+                },
+                {
+                    completed_id: 'e055f023-0c7e-4c34-a4dc-9addc3683def',
+                    user_id: 2,
+                    prblm_id: prblm_ids.add_3,
+                },
+            ])
+        })
 }
