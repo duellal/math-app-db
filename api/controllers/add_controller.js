@@ -73,19 +73,28 @@ const add_addition_prblm_set = async (req, res) => {
             return res.status(500).json(err)
         })
 
-    console.log('Problems:', problems)
-
     let insert = await db('problems').insert(problems).returning('*')
 
     return res.status(200).json(insert)
 }
 
-const get_all_add_prblms = async (req, res) => {
-    return res.status(200).json(await db('problems'))
+const get_add_prblms = async (req, res) => {
+    const { limit, offset, difficulty, operation } = req.query
+
+    let query = db('problems')
+
+    if (difficulty) {
+        query = query.where({ difficulty })
+    }
+    if (operation) {
+        query = query.where({ operation })
+    }
+
+    return res.status(200).json(await query.limit(limit).offset(offset))
 }
 
 module.exports = {
     add_addition_prblm,
     add_addition_prblm_set,
-    get_all_add_prblms,
+    get_add_prblms,
 }
