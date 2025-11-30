@@ -6,7 +6,6 @@ const add_user_completed_prblm = async (req, res) => {
 
     if (!answer || !user_id || !problem_id) {
         let keys_given = Object.keys(req.body).filter((elem) => !req.body[elem])
-        console.log('Keys given?', keys_given)
 
         return res.status(400).json({
             message: `Answer, user id, and problem id keys must be in the req.body. You gave the following keys: ${keys_given}.`,
