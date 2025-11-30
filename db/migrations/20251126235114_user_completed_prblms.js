@@ -7,7 +7,7 @@ exports.up = async function (knex) {
             .primary()
             .defaultTo(knex.raw('uuid_generate_v4()'))
         tbl.timestamp('completed_at').defaultTo(knex.fn.now())
-        tbl.uuid('user_id').primary().unique().notNullable()
+        tbl.string('user_id').primary().unique().notNullable()
         tbl.uuid('problem_id')
             .references('problems.problem_id')
             .onDelete('CASCADE')
