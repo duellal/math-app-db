@@ -13,7 +13,7 @@ exports.up = async function (knex) {
             .onDelete('CASCADE')
             .onUpdate('CASCADE')
             .notNullable()
-
+        tbl.boolean('correct').defaultTo(true)
         tbl.unique(['user_id', 'prblm_id'])
     })
 }
