@@ -4,6 +4,7 @@ const cors = require('cors')
 
 // Endpoint Imports
 const addRoutes = require('./api/routes/add_routes')
+const userRoutes = require('./api/routes/user_routes')
 
 const middleware = [cors(), express.json()]
 
@@ -26,3 +27,4 @@ app.get('/api/health', (req, res) => {
 
 // Routes
 app.use('/api/add', addRoutes)
+app.use('/api/user', userRoutes)
