@@ -15,17 +15,15 @@ exports.seed = function (knex) {
                 {
                     problem_id: prblm_ids.add_2,
                     operation: 'add',
-                    operands: knex.raw(`'[2000, 4, 60]'::jsonb`),
-                    solution: knex.raw(`'2064'::jsonb`),
+                    operands: knex.raw(`'[1, 1]'::jsonb`),
+                    solution: knex.raw(`'2'::jsonb`),
                     difficulty: 'easy',
                 },
                 {
                     problem_id: prblm_ids.add_3,
                     operation: 'add',
-                    operands: knex.raw(
-                        `'[100000, 6, 100, 1000, 10000, 10]'::jsonb`,
-                    ),
-                    solution: knex.raw(`'111116'::jsonb`),
+                    operands: knex.raw(`'[1, 0]'::jsonb`),
+                    solution: knex.raw(`'1'::jsonb`),
                     difficulty: 'easy',
                 },
             ])
