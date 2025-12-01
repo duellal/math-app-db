@@ -16,7 +16,7 @@ exports.seed = function (knex) {
                     problem_id: prblm_ids.add_2,
                     operation: 'add',
                     operands: knex.raw(`'[2000, 4, 60]'::jsonb`),
-                    solution: knex.raw(`'12'::jsonb`),
+                    solution: knex.raw(`'2064'::jsonb`),
                     difficulty: 'easy',
                 },
                 {
@@ -25,7 +25,7 @@ exports.seed = function (knex) {
                     operands: knex.raw(
                         `'[100000, 6, 100, 1000, 10000, 10]'::jsonb`,
                     ),
-                    solution: knex.raw(`'16'::jsonb`),
+                    solution: knex.raw(`'111116'::jsonb`),
                     difficulty: 'easy',
                 },
             ])

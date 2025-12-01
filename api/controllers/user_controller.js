@@ -15,7 +15,8 @@ const add_user_completed_prblm = async (req, res) => {
     let correct = await db('problems')
         .where({ problem_id })
         .select('*')
-        .then((prob) => prob[0].solution === answer)
+        .first()
+        .then((prob) => prob.solution === answer)
 
     await db('user_completed_problems')
         .insert({ user_id, problem_id, correct })
@@ -28,6 +29,9 @@ const add_user_completed_prblm = async (req, res) => {
         })
 }
 
+const get_user_completed_prblm = async (req, res) => {}
+
 module.exports = {
     add_user_completed_prblm,
+    get_user_completed_prblm,
 }
