@@ -79,10 +79,17 @@ const add_addition_prblm_set = async (req, res) => {
 }
 
 const get_add_prblms = async (req, res) => {
-    const { limit, offset, difficulty, operation } = req.query
-
+    const { limit, offset, difficulty, operation, user_id } = req.query
     let query = db('problems')
 
+    if (user_id) {
+        query = db('problems').whereNotIn('problem_id', function () {
+            this.select('problem_id')
+                .from('user_completed_problems')
+                .where('user_id', user_id)
+                .andWhere('correct', true)
+        })
+    }
     if (difficulty) {
         query = query.where({ difficulty })
     }
