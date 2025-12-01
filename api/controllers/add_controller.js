@@ -79,7 +79,7 @@ const add_addition_prblm_set = async (req, res) => {
 }
 
 const get_add_prblms = async (req, res) => {
-    const { limit, offset, difficulty, operation, user_id } = req.query
+    let { limit, offset, difficulty, operation, user_id } = req.query
     let query = db('problems')
 
     if (user_id) {
@@ -96,8 +96,14 @@ const get_add_prblms = async (req, res) => {
     if (operation) {
         query = query.where({ operation })
     }
+    if (limit) {
+        query = query.limit(limit)
+    }
+    if (offset) {
+        query = query.offset(offset)
+    }
 
-    return res.status(200).json(await query.limit(limit).offset(offset))
+    return res.status(200).json(await query)
 }
 
 module.exports = {
